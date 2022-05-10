@@ -1,0 +1,44 @@
+html, body {
+    margin: 0px; 
+    padding: 0px; 
+    height: 100%; 
+}
+
+.container {
+    padding: 16px 24px;
+    position: relative;
+}
+
+.container header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .main {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.container .main .tasks {
+    flex: 1;
+    margin-top: 32px;
+    position: relative;
+}
+
+.container .main .description {
+    flex: 1;
+    margin-top: 16px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

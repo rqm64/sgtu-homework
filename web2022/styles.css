@@ -1,0 +1,36 @@
+html {
+    overflow: auto;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    background: radial-gradient(100% 280px at 50% 0%, var(--color-orange-2) 70%, var(--color-opacity) 70%);
+    background-color: var(--color-grey-1);
+}
+
+iframe {
+    width: 90%;
+    flex-grow: 1;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-black);
+    box-sizing: border-box;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    width: 90%;
+}
+
+
+.nav .select {
+    width: 180px;
+}

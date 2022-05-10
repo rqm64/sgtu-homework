@@ -1,0 +1,27 @@
+.button {
+    padding: 0 8px;
+    height: var(--input-height);
+    border: var(--border);
+    box-sizing: border-box;
+    font: var(--input-font);
+    background: var(--color-white);
+    text-align: center;
+    cursor: pointer;
+}
+
+.button:hover:enabled {
+    background: var(--color-grey-1);
+}
+
+.button.orange {
+    background: var(--color-orange-2);
+}
+
+.button.orange:hover {
+    background: var(--color-orange-1);
+}
+
+.button:disabled {
+    color: var(--color-grey-2);
+    border-color: var(--color-grey-2);
+}

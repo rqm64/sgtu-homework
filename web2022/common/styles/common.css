@@ -1,0 +1,30 @@
+html, body {
+    margin: 0px; 
+    padding: 0px; 
+    height: 100%;
+}
+
+body {
+    font: 16px 'Montserrat', sans-serif;
+
+    --color-orange-1: #F29F05;
+    --color-orange-2: #F2A341;
+    --color-orange-3: #D9863D;
+    --color-grey-1: #F2F2F2;
+    --color-grey-2: #A6A6A6;
+    --color-black: #000;
+    --color-white: #fff;
+    --color-opacity: rgba(0,0,0,0);
+    --color-opacity-black: rgba(0, 0, 0, 0.25);
+
+    --border: 2px solid var(--color-black);
+
+    --input-height: 32px;
+    --input-font: 700 16px/30px 'Montserrat', sans-serif; 
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin:0;
+    padding:0;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../common/styles/common.css">
+    <link rel="stylesheet" href="../common/styles/button.css">
+    <link rel="stylesheet" href="../common/styles/checkbox.css">
+    <link rel="stylesheet" href="../common/styles/inputs.css">
+    <link rel="stylesheet" href="../common/styles/grid.css">
+    <link rel="stylesheet" href="../common/styles/title.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Форма заказа</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Фамилия*</div>
+                <div class="col-8">
+                    <input
+                        type="text"
+                        class="full-width"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Имя*</div>
+                <div class="col-8">
+                    <input
+                        type="text"
+                        class="full-width"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Отчество</div>
+                <div class="col-8">
+                    <input
+                        type="text"
+                        class="full-width"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Пол*</div>
+                <div class="col-8">
+                    <input type="radio" />
+                    <input type="radio" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Цвет глаз</div>
+                <div class="col-8">
+                    <input
+                        type="color"
+                        value="#ffffff"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Дата родждения*</div>
+                <div class="col-8">
+                    <input
+                        type="date"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Возраст</div>
+                <div class="col-8">
+                    <input
+                        type="number"
+                        class="full-width"
+                        min="18"
+                        max="100"
+                        pattern="\d*"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Место рождения*</div>
+                <div class="col-8">
+                    <input
+                        type="search"
+                        class="full-width"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Индекс*</div>
+                <div class="col-8">
+                    <input
+                        type="number"
+                        class="full-width"
+                        step="1"
+                        required
+                        pattern="\d*"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Домашний адрес*</div>
+                <div class="col-8">
+                    <input
+                        type="text"
+                        class="full-width"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Дата регистрации*</div>
+                <div class="col-8">
+                    <input
+                        type="date"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Номер телефона*</div>
+                <div class="col-8">
+                    <input
+                        type="tel"
+                        class="full-width"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">E-mail*</div>
+                <div class="col-8">
+                    <input 
+                        type="email"
+                        class="full-width"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Скриншот первой страницы паспорта*</div>
+                <div class="col-8">
+                    <input
+                        type="file"
+                        accept=".jpg, .jpeg"
+                        required
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Откуда вы узнали о нашем магазине?</div>
+                <div class="col-8">
+                    <textarea
+                        class="full-width"
+                        rows="3"
+                    >
+                    </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 v-middle">Соглашаюсь на обработку и хранение персональных данных*</div>
+                <div class="col-8">
+                    <label class="checkbox">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkbox-mark"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="reset" class="button">Очистить</button>
+                <button type="submit" class="button orange">Отправить</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
