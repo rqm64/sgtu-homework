@@ -15,6 +15,9 @@ public class Controller {
         this.view = view;
     }
 
+    /**
+     * Запуск считывания пользовательских команд.
+     */
     public void run() {
         Scanner scanner = new Scanner(System.in);
 
@@ -27,50 +30,53 @@ public class Controller {
         scanner.close();
     }
 
+    /**
+     * Обработка пользовательских команд.
+     * 
+     * @param command Пользовательская команда
+     */
     private void handleCommand(InputCommand command) {
-        if (command.hasValid()) {
-            switch (command.getCommand()) {
-                case EXIT:
-                    System.exit(0);
-                    break;
-                case HELP:
-                    this.view.printHelpInfo();
-                    break;
-                case MENU:
-                    this.view.printMenu(this.model.getMenu());
-                    break;
-                case ORDER:
-                    try {
+        try {
+            if (command.hasValid()) {
+                switch (command.getCommand()) {
+                    case EXIT:
+                        System.exit(0);
+                        break;
+                    case HELP:
+                        this.view.printHelpInfo();
+                        break;
+                    case MENU:
+                        this.view.printMenu(this.model.getProducts());
+                        break;
+                    case ORDER: {
+                        if (command.getParams().length == 0) {
+                            throw new Exception("Необходимо указать номер товара");
+                        }
                         String productId = command.getParams()[0];
-                        OrderModel order = this.model.addOrder(productId);
+                        OrderModel order = this.model.createOrder(productId);
                         this.view.printOrderCreated(order);
-                    } catch (Exception e) {
-                        this.view.printInvalidInput();
+                        break;
                     }
-                    break;
-                case ORDER_STATUS:
-                    try {
+                    case ORDER_STATUS: {
                         String orderId = command.getParams()[0];
                         OrderModel order = this.model.getOrder(orderId);
                         this.view.printOrderStatus(order);
-                    } catch (Exception e) {
-                        this.view.printInvalidInput();
+                        break;
                     }
-                    break;
-                case ADMIN_ORDER_NEXT_STATUS:
-                    try {
+                    case ADMIN_ORDER_NEXT_STATUS: {
                         String orderId = command.getParams()[0];
                         OrderModel order = this.model.changeOrderStatusToNext(orderId);
                         this.view.printChangeStatusSuccess(order);
-                    } catch (Exception e) {
-                        this.view.printInvalidInput();
+                        break;
                     }
-                    break;
-                default:
-                    break;
+                    default:
+                        break;
+                }
+            } else {
+                throw new Exception("Для просмотра доступных команд введите help");
             }
-        } else {
-            this.view.printInvalidInput();
+        } catch (Exception e) {
+            this.view.printInvalidInput(e.getMessage());
         }
     }
 }

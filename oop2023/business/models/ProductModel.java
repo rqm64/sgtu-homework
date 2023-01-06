@@ -1,20 +1,12 @@
 package business.models;
 
-import utils.IdCounter;
-
-public class PizzaModel {
-    private int id;
+public class ProductModel extends EntityModel {
     private String name;
     private String price;
 
-    public PizzaModel(String name, String price) {
-        this.id = IdCounter.next();
+    public ProductModel(String name, String price) {
         this.name = name;
         this.price = price;
-    }
-
-    public int getId() {
-        return this.id;
     }
 
     public String getName() {

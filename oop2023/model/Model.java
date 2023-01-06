@@ -1,68 +1,65 @@
 package model;
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 import business.models.OrderModel;
-import business.models.PizzaModel;
-import business.types.OrderStatusType;
+import business.models.ProductModel;
 
 public class Model {
-    Map<String, OrderModel> orders = new HashMap<String, OrderModel>();
-    Map<String, PizzaModel> menu = new HashMap<String, PizzaModel>();
-
-    public Model() {
-        this.addPizzaToMenu("Маргарита", "400.00");
-        this.addPizzaToMenu("Пепперони", "450.00");
-        this.addPizzaToMenu("Мясная", "650.00");
-        this.addPizzaToMenu("Морская", "800.00");
-        this.addPizzaToMenu("Сырная", "500.00");
+    private EntityMap<OrderModel> orders = new EntityMap<OrderModel>();
+    private EntityMap<ProductModel> products = new EntityMap<ProductModel>();
+    
+    public void initMockMenu() {
+        this.createProduct("Маргарита", "400.00");
+        this.createProduct("Пепперони", "450.00");
+        this.createProduct("Мясная", "650.00");
     }
-
-    public void addPizzaToMenu(String name, String price) {
-        PizzaModel pizza = new PizzaModel(name, price);
-        this.menu.put(Integer.toString(pizza.getId()), pizza);
+    
+    /**
+     * Получение меню.
+     */
+    public List<ProductModel> getProducts() {
+        return this.products.get();
     }
-
-    public OrderModel addOrder(String productId) {
-        OrderModel order = new OrderModel(this.menu.get(productId));
-        this.orders.put(Integer.toString(order.getId()), order);
-        return order;
+    
+    /**
+     * Добавление товара в меню.
+     * @param name Наименование.
+     * @param price Стоимость.
+     */
+    public void createProduct(String name, String price) {
+        this.products.add(new ProductModel(name, price));
     }
-
+    
+    /**
+     * Получение заказа.
+     * @param orderId Идентификатор заказа.
+     */
     public OrderModel getOrder(String orderId) {
         return orders.get(orderId);
     }
 
-
-    public List<PizzaModel> getMenu() {
-        return new ArrayList<PizzaModel>(this.menu.values());
+    /**
+     * Создание заказа
+     * @param productId Идентификатор заказанной пиццы.
+     */
+    public OrderModel createOrder(String productId) throws Exception {
+        if (this.products.get(productId) == null) {
+            throw new Exception("Не найден товар по указанному идентификатору.");
+        };
+        OrderModel order = new OrderModel(productId);
+        this.orders.add(order);
+        
+        return order;
     }
 
-    public void changeOrderStatus(String orderId, OrderStatusType status) {
-        OrderModel order = orders.get(orderId);
-        order.setStatus(status);
-    }
-
+    /**
+     * Продвижение заказа по статусу.
+     * @param orderId Идентификатор заказа.
+     */
     public OrderModel changeOrderStatusToNext(String orderId) {
         OrderModel order = orders.get(orderId);
-        OrderStatusType status = order.getStatus();
-
-        switch (status) {
-            case CREATED:
-                order.setStatus(OrderStatusType.PREPARED);
-                break;
-            case PREPARED:
-                order.setStatus(OrderStatusType.COMPLETED);
-                break;
-            case COMPLETED:
-                // TODO Ошибка
-                break;
-            default:
-                break;
-        }
-
+        order.setStatus();
         return order;
     }
 }
