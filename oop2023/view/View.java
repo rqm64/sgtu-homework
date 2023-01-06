@@ -22,7 +22,7 @@ public class View {
         System.out.println("=> \"order номер_пиццы\" - сделать заказ");
         System.out.println("=> \"order_status номер_заказа\" - статус заказ");
         System.out.println("=> Команды сотрудника:");
-        System.out.println("=> \"admin_next_status номер_заказа\" - изменить статус заказ");
+        System.out.println("=> \"admin_order_next_status номер_заказа\" - изменить статус заказ");
     }
 
     public void printInvalidInput() {
