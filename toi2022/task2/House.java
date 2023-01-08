@@ -12,7 +12,7 @@ public class House {
     public String toString() {
         String postfix;
 
-        if (Integer.toString(floor).endsWith("1")) {
+        if (Integer.toString(this.floor).endsWith("1")) {
             postfix = " этажом";
         } else {
             postfix = " этажами";
