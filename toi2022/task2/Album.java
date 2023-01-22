@@ -4,7 +4,7 @@ import java.util.List;
 public class Album {
     private String title;
     private String author;
-    private List<Track> tracks = new ArrayList<Track>();;
+    private List<Track> tracks = new ArrayList<Track>();
 
     public Album(String title, String author) {
         this.title = title;

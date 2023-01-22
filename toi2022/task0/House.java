@@ -3,10 +3,14 @@ public class House {
 
     public House(int floor) {
         if (floor < 1) {
-            throw new Error("У дома не может быть этажей меньше 1");
+            throw new IllegalArgumentException("У дома не может быть этажей меньше 1");
         } else {
             this.floor = floor;
         }
+    }
+
+    public int getFloor() {
+        return this.floor;
     }
 
     public String toString() {

@@ -21,7 +21,7 @@ public class Track {
         if (this.album == null) {
             this.album = album;
         } else {
-            System.err.println("Трек уже прикреплен к альбому.");
+            throw new IllegalStateException("Трек уже прикреплен к альбому.");
         }
     }
 
@@ -42,7 +42,7 @@ public class Track {
 
     public String getAlbumList() {
         if (album == null) {
-            return "У трека отсутствует альбом.";
+            throw new IllegalStateException("У трека отсутствует альбом.");
         }
 
         return this.album.getTracks()
