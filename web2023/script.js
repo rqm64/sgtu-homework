@@ -29,7 +29,7 @@
         const frameElement = $utils.create('iframe');
         frameElement.className = 'iframe';
         frameElement.id = FRAME_ID;
-        frameElement.src = WORK_PATH[2];
+        frameElement.src = WORK_PATH[0];
 
         rootElement.appendChild(frameElement);
     };
