@@ -38,7 +38,7 @@ public class BooksServlet extends HttpServlet {
 
             Statement statement = connection.createStatement();
             // database test
-            createTestTable(statement);
+//            createTestTable(statement);
             
             try {
                 ResultSet rs = statement.executeQuery("SELECT * FROM Books WHERE `year` >= " + year);
